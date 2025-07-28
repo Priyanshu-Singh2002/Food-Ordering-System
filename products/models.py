@@ -20,7 +20,6 @@ class Product(BaseModel):
     is_available = models.BooleanField(default=True)
 
     
-
 class Product_Meta_Info(BaseModel):
     product = models.OneToOneField(Product, on_delete=models.CASCADE, related_name='product_info')
     description = models.TextField()
@@ -28,7 +27,6 @@ class Product_Meta_Info(BaseModel):
     quantity_unit = models.CharField(null=False, choices= (('kg','kg'),('g','g'),('ltr','ltr'),('ml','ml'),('pcs','pcs')), max_length=4, default='pcs')
     is_quantity_limited = models.BooleanField(default=False)
     limited_quantity = models.IntegerField(default=0)
-
 
 
 class ProductImages(BaseModel):
