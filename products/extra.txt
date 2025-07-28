@@ -1,0 +1,17 @@
+✅ When using:
+uid = models.UUIDField(default=uuid.uuid4())
+uuid.uuid4() is called immediately when the class is defined, not when the model instance is created.
+
+The resulting UUID object is fixed and stored as the default.
+
+Every new object will receive the same UUID, which breaks uniqueness.
+
+✅ When using:
+
+uid = models.UUIDField(default=uuid.uuid4)
+uuid.uuid4 is passed as a callable function (a reference, not executed yet).
+
+Django will call uuid.uuid4() function each time when a new object is created, generating a unique UUID.
+
+This ensures each model instance has its own unique UID, as intended.
+
