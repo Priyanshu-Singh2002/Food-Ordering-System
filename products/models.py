@@ -3,6 +3,7 @@ import uuid
 
 #  DRY -> Don't Repeat Yourself
 
+#  Parent class 
 class BaseModel(models.Model):
     uid = models.UUIDField(default= uuid.uuid4,editable=False,primary_key=True)
     created_at = models.DateField(auto_created=True) 
